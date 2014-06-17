@@ -28,7 +28,7 @@ Plugin 'wincent/Command-T'
 "let g:CommandTMatchWindowReverse = 1
 
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = "/home/fox/.vim/ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "/home/sik/.vim/ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 "let g:ycm_server_log_level = 'debug'
 "let g:ycm_key_list_previous_completion=['<Up>']
@@ -48,9 +48,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 "Bundle 'a.vim'
 
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
-let g:LatexBox_latexmk_options = "-xelatex -pdf"
+let g:LatexBox_latexmk_options = "-xelatex -pdf -pvc"
 " From https://github.com/LaTeX-Box-Team/LaTeX-Box/issues/105
-let g:LatexBox_latexmk_async=1
+let g:LatexBox_latexmk_async=1 "ho deia l'error del vim...
 let g:LatexBox_quickfix=2
 let g:LatexBox_latexmk_preview_continuously=1 
 "-pdfps -pvc"
@@ -103,7 +103,8 @@ endif
 
 colorscheme default
 if has("gui_running")
-  colorscheme vividchalk
+  "colorscheme vividchalk
+  colorscheme zenburn
   "colorscheme blue
   "set background=dark
   set guioptions-=m  "remove menu bar
@@ -111,7 +112,8 @@ if has("gui_running")
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
 else
-  colorscheme darkblue
+  "colorscheme darkblue
+  colorscheme zenburn
 endif
 
 let g:indent_guides_enable_on_vim_startup = 1
@@ -176,5 +178,15 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
 "set guifont=DejaVu\ Sans\ Mono\ 10
-set guifont=Monospace\ 8 
+set guifont=Monospace\ 12
 
+"braking hte habit of using the arrowkeys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" airline configuration
+set showcmd "Show what you are tiping in normal mode
+set laststatus=2 "workaround for showing airline when no split
+set noshowmode "remove the old status bar -- INSERT --
