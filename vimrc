@@ -28,7 +28,7 @@ Plugin 'wincent/Command-T'
 "let g:CommandTMatchWindowReverse = 1
 
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = "/home/sik/.vim/ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "/home/fox/.vim/ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 "let g:ycm_server_log_level = 'debug'
 "let g:ycm_key_list_previous_completion=['<Up>']
@@ -48,7 +48,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 "Bundle 'a.vim'
 
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
-let g:LatexBox_latexmk_options = "-xelatex -pdf -pvc"
+let g:LatexBox_latexmk_options = "-xelatex -pdf"
 " From https://github.com/LaTeX-Box-Team/LaTeX-Box/issues/105
 let g:LatexBox_latexmk_async=1 "ho deia l'error del vim...
 let g:LatexBox_quickfix=2
@@ -103,8 +103,8 @@ endif
 
 colorscheme default
 if has("gui_running")
-  "colorscheme vividchalk
-  colorscheme zenburn
+  colorscheme vividchalk
+  "colorscheme zenburn
   "colorscheme blue
   "set background=dark
   set guioptions-=m  "remove menu bar
