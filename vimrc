@@ -27,8 +27,8 @@ Plugin 'wincent/Command-T'
 "let g:CommandTMatchWindowAtTop = 1
 "let g:CommandTMatchWindowReverse = 1
 
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = "/home/fox/.vim/ycm_extra_conf.py"
+"Plugin 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = "/home/jmassich/.vim/ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 "let g:ycm_server_log_level = 'debug'
 "let g:ycm_key_list_previous_completion=['<Up>']
@@ -79,6 +79,10 @@ Plugin 'Raimondi/delimitMate'
 
 " use git from vim
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'Solarized'
+let g:solarized_termcolors=256
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -112,8 +116,12 @@ if has("gui_running")
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
 else
+  syntax enable
+  colorscheme vividchalk
+  "set background=dark
+  "colorscheme solarized
   "colorscheme darkblue
-  colorscheme zenburn
+  "colorscheme zenburn
 endif
 
 let g:indent_guides_enable_on_vim_startup = 1
@@ -131,7 +139,7 @@ set nu
 set cursorline
 
 " Show Clumn line
-set colorcolumn=80
+set colorcolumn=81
 
 " Show autocomplete list of commands
 set wildmenu
@@ -157,9 +165,6 @@ noremap <leader>bx :Bclose!<CR>     " Close the buffer & discard changes.
 
 nnoremap <silent> <Leader>bb :CommandTBuffer<CR>
 
-"Able and disable spellcheck in english
-map <F5> :setlocal spell! spelllang=en_gb<CR>
-
 "spaces instead of tab
 set expandtab
 set tabstop=2
@@ -176,6 +181,8 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+inoremap jk <esc>
+inoremap kj <esc>
 
 "set guifont=DejaVu\ Sans\ Mono\ 10
 set guifont=Monospace\ 12
@@ -190,3 +197,15 @@ noremap <Right> <NOP>
 set showcmd "Show what you are tiping in normal mode
 set laststatus=2 "workaround for showing airline when no split
 set noshowmode "remove the old status bar -- INSERT --
+
+" Map FXX keys
+" F5 Able and disable spellcheck in english
+map <F5> :setlocal spell! spelllang=en_gb<CR>
+
+" F11 Gundo call
+nnoremap <F11> :GundoToggle<CR>
+
+" F12 toggle highlighting searchs
+:map <F12> :highlight Search term=None ctermfg=None ctermbg=None guifg=None guibg=None<CR>
+:map <SHIFT><F12> :highlight Search term=OV1 ctermfg=OV2 ctermbg=OV3 guifg=OV4 guibg=OV5<CR>
+
